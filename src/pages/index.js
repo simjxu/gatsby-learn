@@ -21,16 +21,25 @@ const IndexPage = ({ data }) => (
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
-          <h3>
-            {node.frontmatter.title}{" "}
-            <span
+          <Link
+              to={node.fields.slug}
               className={css`
-                color:#bbb;
+                text.decoration:none:
+                color: inherit;
               `}
             >
-              - {node.frontmatter.date}
-            </span>
-          </h3>
+              <h3>
+                {node.frontmatter.title}{" "}
+                <span
+                  className={css`
+                    color: #bbb;
+                  `}
+                >
+                  - {node.frontmatter.date}
+                </span>
+              </h3>
+            </Link>
+          <p>{node.excerpt}</p>
         </div>
       ))}    
 
@@ -51,6 +60,13 @@ export const query = graphql`
           frontmatter {
             title
             date(formatString: "DD MMM, YYYY")
+          }
+          fields {
+            slug
+          }
+          excerpt
+          internal {
+            content
           }
         }
       }

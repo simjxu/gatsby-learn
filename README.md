@@ -20,3 +20,4 @@ To Do:
   > This allows you to set default changes without having to play with
     any CSS
 - Try out CSS Modules when you get a chance (see same link above)
+- Emotion lets you write CSS using JS

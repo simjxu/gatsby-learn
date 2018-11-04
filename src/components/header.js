@@ -26,7 +26,6 @@ const Header = ({ siteTitle }) => (
       {/* This is where you place the links in the upper Right */}
       <header style={{ marginBottom: `0rem` }}>
         <ul style={{ listStyle: `none`, float: `right` }}>
-          <ListLink to="/">Home</ListLink>
           <ListLink to="/about/">About</ListLink>
           <ListLink to="/projects/">Projects</ListLink>
           <a href="http://app.simonxu.com">WebApp</a>

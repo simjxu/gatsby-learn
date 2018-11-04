@@ -21,3 +21,4 @@ To Do:
     any CSS
 - Try out CSS Modules when you get a chance (see same link above)
 - Emotion lets you write CSS using JS
+- Rhythm supposedly can help make the links to the blog posts look better

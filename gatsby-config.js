@@ -12,6 +12,7 @@ module.exports = {
         path: `${__dirname}/src/`,
       },
     },
+    // transformer-remark allows you to query for markdown files
     'gatsby-transformer-remark',
     'gatsby-plugin-sharp',
     {

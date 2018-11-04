@@ -1,18 +1,62 @@
 import React from 'react'
+import { graphql } from 'gatsby'
+import { css } from 'react-emotion'
 import { Link } from 'gatsby'
 
 import Layout from '../components/layout'
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: '300px', marginBottom: '1.45rem' }}>
-    
+    {/* -----Subtitle----- */}
+    <div>
+      <h3
+        className={css`
+          display: inline-block;
+          color: #719010;
+        `}
+      >
+        A soft, nutritiously technical blog
+      </h3>
+
+      <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <h3>
+            {node.frontmatter.title}{" "}
+            <span
+              className={css`
+                color:#bbb;
+              `}
+            >
+              - {node.frontmatter.date}
+            </span>
+          </h3>
+        </div>
+      ))}    
+
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
 
+// This is the GraphQL filter that determines what shows up
+export const query = graphql`
+  query {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC}
+      filter: { frontmatter: {layout: {eq: "post"}}}) {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "DD MMM, YYYY")
+          }
+        }
+      }
+    }
+  }
+`
+
 export default IndexPage
+

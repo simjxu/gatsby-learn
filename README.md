@@ -13,3 +13,10 @@ Updating remote:
 git checkout master
 git reset --hard <commit SHA>
 git push --force origin master
+
+
+To Do:
+- Try out plugin Typography https://www.gatsbyjs.org/tutorial/part-two/
+  > This allows you to set default changes without having to play with
+    any CSS
+- Try out CSS Modules when you get a chance (see same link above)

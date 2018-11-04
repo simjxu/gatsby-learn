@@ -1,5 +1,4 @@
 import React from "react"
-import { Link, grapql } from 'gatsby'
 
 // This is only used for linking in between different sites in the directory
 import Layout from '../components/layout'
